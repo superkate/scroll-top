@@ -1,0 +1,16 @@
+#uni_scroll_top_arrow {
+	display: none;
+	position: fixed;
+	right: 0px;
+	bottom: 50%;
+	z-index: 100000000;
+	cursor: pointer;
+	background-color: #F5F5F5;
+	height: 27px;
+	padding: 5px 12px;
+	margin: 0;
+	padding: 5px 12px 0px 12px;
+	text-align: center;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	font: 14px 'Open Sans',arial,sans-serif;
+}

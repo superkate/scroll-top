@@ -1,0 +1,13 @@
+{
+    "name":"ScrollTop Arrow",
+	"manifest_version": 2,
+    "version":"0.1",
+    "description":"Adds pretty ScrollTop arrow to all pages",
+    "content_scripts":[
+        {
+			"matches": ["<all_urls>"],
+            "css":["style.css"],
+            "js":["jquery.js", "script.js"]
+        }
+    ]
+}
