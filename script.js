@@ -3,34 +3,33 @@ var arrowName = 'uni_scroll_top_arrow';
 var arrowSelector = '#' + arrowName;
 var clickAllowed = true;
 
-$(function() {
-	$('body').append('<div id="' + arrowName + '"> &uarr; </div>');
-	$(arrowSelector).click(function() {
-		if (clickAllowed) {
-			$("html, body").animate({ scrollTop: "0px" }, 1000);
-		}
-		
-		clickAllowed = false;
-		setTimeout(function() {
-			clickAllowed = true;
-		}, 1000);
-	});
+var arrow = document.createElement('div');
+arrow.id = arrowName;
+arrow.innerText = ' \u2191 ';
+arrow.onclick = scrollTop;
+document.getElementsByTagName('body')[0].appendChild(arrow);
 	
-	$( window ).scroll(toggleTopButton);
+window.onscroll = toggleTopButton;
 	
-	if ($( window ).scrollTop() > scrollLimit) {
-		toggleTopButton();
-	}
-});
+if (window.pageYOffset > scrollLimit) {
+	toggleTopButton();
+}
 
 function toggleTopButton() {
-	var YOffset = window.pageYOffset || document.documentElement.scrollTop;
+	var YOffset = window.pageYOffset;
 		
-	var arrow = $(arrowSelector);
-		
-	if (YOffset > scrollLimit) {
-		arrow.fadeIn();
-	} else {
-		arrow.fadeOut();
+	arrow.style.display = (YOffset > scrollLimit) ?
+		'block' :
+		'none';
+}
+
+function scrollTop() {
+	if (clickAllowed) {
+		window.scrollTo(0,0);
 	}
+		
+	clickAllowed = false;
+	setTimeout(function() {
+		clickAllowed = true;
+	}, 1000);
 }
