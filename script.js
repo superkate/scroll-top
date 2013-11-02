@@ -1,10 +1,8 @@
 var scrollLimit = 0;
-var arrowName = 'uni_scroll_top_arrow';
-var arrowSelector = '#' + arrowName;
 var clickAllowed = true;
 
 var arrow = document.createElement('div');
-arrow.id = arrowName;
+arrow.id = 'uni_scroll_top_arrow';
 arrow.innerText = ' \u2191 ';
 arrow.onclick = scrollTop;
 document.getElementsByTagName('body')[0].appendChild(arrow);
